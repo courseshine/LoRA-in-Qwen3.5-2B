@@ -6,7 +6,7 @@
 
 ```
 .
-├── qwen3.5 2B/                  # 基座模型（Qwen3.5-2B 原始权重）            （需要自行下载，链接：https://huggingface.co/Qwen/Qwen3.5-2B）
+├── qwen3.5 2B/                  # 基座模型（Qwen3.5-2B 原始权重）            （需要自行下载，[Qwen3.5 2B 模型地址](https://huggingface.co/Qwen/Qwen3.5-2B)）
 ├── qwen3.5 2B-xjtu/             # LoRA 适配器（训练产出）                    （训练产出）
 ├── qwen3.5 2B-xjtu-merged/      # LoRA 合并后的完整模型                      （使用merge_lora.py做权重合并后产出）
 │
