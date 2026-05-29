@@ -6,7 +6,7 @@
 
 ```
 .
-├── qwen3.5 2B/                  # 基座模型（Qwen3.5-2B 原始权重）            （需要自行下载）
+├── qwen3.5 2B/                  # 基座模型（Qwen3.5-2B 原始权重）            （需要自行下载，链接：https://huggingface.co/Qwen/Qwen3.5-2B）
 ├── qwen3.5 2B-xjtu/             # LoRA 适配器（训练产出）                    （训练产出）
 ├── qwen3.5 2B-xjtu-merged/      # LoRA 合并后的完整模型                      （使用merge_lora.py做权重合并后产出）
 │
@@ -24,7 +24,9 @@
 │
 ├── xjtu data.jsonl              # 训练数据集
 ├── data_gen_prompt.txt          # 数据集生成提示词模版
-├── loss_curve.png               # 我训练的训练 Loss 曲线
+├── loss_curve.png               # 我训练过程中的训练 Loss 曲线
+├── Modelfile                    # 将gguf格式转化为ollama识别的格式
+├── Modelfile-base               # 将gguf格式转化为ollama识别的格式
 ├── requirements.txt             # Python 依赖
 └── README.md
 ```
@@ -34,7 +36,7 @@
 ### 硬件
 
 - 训练：建议 4GB+ 显存的 NVIDIA GPU（我的4050显卡，6G显存，训练耗时65分钟）
-- 推理：没有显存需求
+- 推理：没有显存需求，只有2B大小，任何电脑都可以。
 
 ### 依赖
 
@@ -86,7 +88,7 @@ python scripts/analyze_data.py
 
 统计数据集中回答的开头风格分布，检查数据多样性。
 
-### 5. 转换为 GGUF 格式（可选）
+### 5. 转换为 GGUF 格式
 
 如果你想把模型用在 Ollama、LM Studio 这类工具上，需要转成 GGUF 格式：
 
@@ -137,6 +139,8 @@ ollama run qwen3.5-2b-xjtu
 4. **换个领域也能做**。修改 `data_gen_prompt.txt` 里的提示词模板，找一个强大的 AI 帮忙生成数据集，就可以把模型训练成其他领域的chatbot。也可以考虑自制数据集，因为只需要1000条左右的数据，自己搜一搜写写脚本当然也可以做出来数据集。
 
 5. **微调的实用性问题**。这种微调感觉实用性有限。如果想达到类似的目的，更高效的做法是用一个规模较大的模型（比如同系列的Qwen3.5 27B）建一个知识库（RAG），配合一些提示词工程，效果可能更好，而且不需要重新训练模型。
+
+6.  **代码中的问题**。很多地方采用了绝对路径，不是相对路径，想重新做出来的话，需要注意路径的更改。
 
 ## 附录：Qwen3.5-2B 模型结构详解
 
