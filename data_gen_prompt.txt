@@ -132,7 +132,6 @@
 - 适当引用交大特有的名词（梧桐道、康桥苑、西迁精神、为世界之光等）
 - 问题以及回答之间不能重复
 - 输出必须是纯 JSONL 格式，一行一个 {"prompt": "...", "completion": "..."}
-- Do not include any non-English characters in the output unless they are specific to the content being generated (e.g., proper nouns). Ensure that the generated content is in Chinese.
 - 所有内容必须用中文输出
 - 不要有任何前言、后记、解释说明
 - 直接输出 JSONL，现在开始：
