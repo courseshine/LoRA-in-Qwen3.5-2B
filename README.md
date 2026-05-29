@@ -1,6 +1,6 @@
 # Qwen3.5-2B-XJTU
 
-用 QLoRA 在西安交通大学相关数据上微调 Qwen3.5-2B，得到一个懂交大的 AI 助手。
+用 QLoRA 在西安交通大学相关数据上微调 Qwen3.5-2B，得到一个懂交大的 AI 助手。 Qwen3.5-2B可根据自身显存大小换更大参数量的模型，西安交通大学相关数据可根据个人需求更换主题。
 
 ## 目录结构
 
@@ -8,9 +8,9 @@
 .
 ├── qwen3.5 2B/                  # 基座模型（Qwen3.5-2B 原始权重）            （需要自行下载）
 ├── qwen3.5 2B-xjtu/             # LoRA 适配器（训练产出）                    （训练产出）
-├── qwen3.5 2B-xjtu-merged/      # LoRA 合并后的完整模型                      （使用merge_lora.py做权重合并产出）
+├── qwen3.5 2B-xjtu-merged/      # LoRA 合并后的完整模型                      （使用merge_lora.py做权重合并后产出）
 │
-├── GGUF model/                  # GGUF 格式模型（可直接给 Ollama 用）         （使用convert_to_gguf.py做权重数据类型转化产出）           
+├── GGUF model/                  # GGUF 格式模型（可直接给 Ollama 用）         （使用convert_to_gguf.py做权重数据类型转化后产出）           
 │   ├── blobs/                   # Ollama 的内容寻址存储
 │   └── manifests/               # Ollama 模型清单
 │
@@ -98,7 +98,7 @@ python scripts/convert_to_gguf.py
 
 ### 6. 导入 Ollama
 
-转换完成后，导入Ollama还需要一步转换，用 Modelfile 导入 Ollama：
+转换完成后，可以直接导入LM Studio，如果想导入Ollama还需要一步转换，用两个 Modelfile 来导入 Ollama：
 
 ```bash
 # 微调模型
