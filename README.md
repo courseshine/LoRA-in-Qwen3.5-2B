@@ -8,9 +8,9 @@
 .
 ├── qwen3.5 2B/                  # 基座模型（Qwen3.5-2B 原始权重）            （需要自行下载）
 ├── qwen3.5 2B-xjtu/             # LoRA 适配器                               （训练产出）
-├── qwen3.5 2B-xjtu-merged/      # LoRA 合并后的完整模型                      （使用merge_lora.py做权重合并后产出）
+├── qwen3.5 2B-xjtu-merged/      # LoRA 合并后的完整模型                      （使用`merge_lora.py`做权重合并后产出）
 │
-├── GGUF model/                  # GGUF 格式模型                              （使用convert_to_gguf.py做权重数据类型转化后产出）           
+├── GGUF model/                  # GGUF 格式模型                              （使用`convert_to_gguf.py`做权重数据类型转化后产出）           
 │   ├── blobs/                   # Ollama 的内容寻址存储
 │   └── manifests/               # Ollama 模型清单
 │
@@ -103,7 +103,7 @@ python scripts/convert_to_gguf.py
 
 ### 6. 导入 Ollama
 
-转换完成后，可以直接导入LM Studio，如果想导入Ollama还需要一步转换，用两个 Modelfile 来导入 Ollama：
+转换完成后，可以直接导入LM Studio，如果想导入Ollama还需要一步转换，用两个 `Modelfile` 来导入 Ollama：
 
 ```bash
 # 微调模型
@@ -118,7 +118,7 @@ ollama run qwen3.5-2b-xjtu
 
 ## 数据集
 
-`xjtu data.jsonl` 由data_gen_prompt.txt生成，包含约 1000 条问答对，覆盖西安交通大学十大主题：
+`xjtu data.jsonl` 由`data_gen_prompt.txt`生成，包含约 1000 条问答对，覆盖西安交通大学十大主题：
 
 - 历史沿革、西迁精神、校园地理、书院制、学科建设
 - 知名人物、招生培养、校园文化、附属机构、报考指南
